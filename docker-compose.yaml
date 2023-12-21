@@ -13,6 +13,8 @@ services:
       - $POSTGRES_LOCAL_PORT:$POSTGRES_DOCKER_PORT
     volumes:
       - db:/var/lib/postgres
+    networks:
+      - mynetwork
 
   app:
     depends_on:
@@ -28,8 +30,13 @@ services:
       - DB_PASSWORD=$POSTGRES_PASSWORD
       - DB_NAME=$POSTGRES_DATABASE
       - DB_PORT=$POSTGRES_DOCKER_PORT
+      - PRISMA_MIGRATE_TIMEOUT=30000
     stdin_open: true
     tty: true
+    networks:
+      - mynetwork
 
 volumes:
   db:
+networks:
+  mynetwork:
