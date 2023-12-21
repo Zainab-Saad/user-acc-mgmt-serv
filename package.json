@@ -10,7 +10,8 @@
     "start": "nodemon start src/app.js",
     "lint:fix": "eslint . --fix",
     "prisma:generate": "prisma generate --schema=./src/models/schema.prisma",
-    "prisma:migrate": "prisma migrate dev --schema=./src/models/schema.prisma",
+    "prisma:migrate:dev": "prisma migrate dev --name initial_01 --schema=./src/models/schema.prisma",
+    "prisma:migrate:deploy": "prisma migrate dev --schema=./src/models/schema.prisma",
     "prisma:format": "prisma format --schema=./src/models/schema.prisma"
   },
   "devDependencies": {

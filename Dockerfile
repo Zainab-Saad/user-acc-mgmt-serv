@@ -8,4 +8,4 @@ RUN yarn install
 
 COPY . .
 
-CMD yarn prisma:generate && yarn prisma:migrate && yarn start
+CMD yarn prisma:generate && PRISMA_SCHEMA_DISABLE_ADVISORY_LOCK=true yarn prisma:migrate:dev && sleep 30 && yarn start
