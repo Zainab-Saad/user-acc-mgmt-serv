@@ -21,7 +21,7 @@ const mailConfigurations = (userName, to) => {
   return {
     from: process.env.SENDER_EMAIL,
     to,
-    subject: 'Athlympian - Email Verification',
+    subject: 'Photo Gallery - Email Verification',
     html: ejs.render(
       `
     <html>
