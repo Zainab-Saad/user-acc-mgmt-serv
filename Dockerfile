@@ -8,4 +8,4 @@ RUN yarn install
 
 COPY . .
 
-CMD yarn start
+CMD yarn prisma:generate && yarn prisma:migrate && yarn start
