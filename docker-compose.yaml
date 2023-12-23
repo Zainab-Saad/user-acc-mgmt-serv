@@ -40,3 +40,4 @@ volumes:
   db:
 networks:
   mynetwork:
+    driver: bridge
