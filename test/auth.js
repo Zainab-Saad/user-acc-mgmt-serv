@@ -22,94 +22,6 @@ import {
 } from '../src/utils/jwt.util.js';
 import { hashToken } from '../src/utils/hashToken.util.js';
 
-// - getUserByEmail(email)
-// 	=> existing email
-// 	=> non existent email
-
-// - createUserData(email, password, firstName, lastName)
-// 	=> existing email, correct password
-// 	=> existing email, wrong password
-// 	=> new email, password empty
-// 	=> new email, password not strong (1234, zainab)
-// 	=> new email, password strong, firstname, lastname empty
-// 	=> numbers for all these three
-
-// - generateAccessToken
-// 	=> null
-// 	=> non existent
-// 	=> existent
-// 	=> give a diff user object, diff token should be generated
-
-// - generateRefreshToken
-// 	=> null, null
-// 	=> existent jwtid
-// 	=> give a different user object, diff token should be generated
-// 	=> existent, random 1234 as jwtid
-// 	=> existent, random string as jwtid
-
-// - getUserData(id)
-// 	=> non existent id
-// 	=> existent id
-// 	=> string
-// 	=> negative number
-// 	=> zero
-
-// - verifyRefreshToken(jwt token)
-// 	=> null
-// 	=> random number 12234 as jwt
-// 	=> random string as jwt
-// 	=> correct jwt generated
-
-// - getRefreshTokenById(uuid jwtid)
-// 	=> random strings
-// 	=> random int
-// 	=> non existent uuid
-// 	=> existent uuid
-
-// - hashToken(token)
-// 	=> random 12234
-// 	=> invalid string
-// 	=> valid uuid
-// - deleteRefreshToken
-// 	=> random strings
-// 	=> random int
-// 	=> non existent uuid
-// 	=> existent uuid
-// - getUserById
-// 	=> random strings
-// 	=> random int
-// 	=> non existent uuid
-// 	=> existent uuid
-// - addRefreshTokenToDb(jwtid, refreshToken hashed, userid)
-// 	=> null, null, null
-// 	=> randomstring, valid hashed token, valid id
-// 	=> random int
-// 	=> non existent valid
-// 	=> existent valid
-
-// 	=> non existent valid, random number, valid id
-// 	=> , random string,
-// 	=> , correct jwt token generated,
-// 	=> , correct jwt hashed token,
-
-// 	=> non existent valid, valid token, negative
-// 	=> non existent valid, valid token, zero
-// 	=> , , valid id
-// - verifyEmailVerificationToken (token)
-// 	=> null
-// 	=> random number 12234 as jwt
-// 	=> random string as jwt
-// 	=> correct jwt generated
-// - updateUserVerificationStatus(email)
-// 	=> existent non verified email
-// 	=> existent verified email
-// 	=> non existent email
-// - verifyAccessToken (token)
-// 	=> null
-// 	=> random number 12234 as jwt
-// 	=> random string as jwt
-// 	=> correct jwt generated
-
 const data = {
   email: 'zainab101saad567@gmail.com',
   password: 'password1234',
@@ -566,7 +478,10 @@ describe('User Authentication', function () {
       const emailToken = 'hello-world';
       verifyEmailVerificationToken(emailToken);
     } catch (error) {
-      assert.equal(error.message, 'Error occured while verifying the email, please try again');
+      assert.equal(
+        error.message,
+        'Error occured while verifying the email, please try again'
+      );
     }
   });
 });

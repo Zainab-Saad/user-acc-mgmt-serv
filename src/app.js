@@ -15,3 +15,5 @@ const PORT = process.env.NODE_DOCKER_PORT;
 app.listen(PORT, () => {
   console.info(`server running at port ${PORT}`);
 });
+
+export { app };
