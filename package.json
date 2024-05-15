@@ -9,17 +9,20 @@
   "scripts": {
     "start": "nodemon start src/app.js",
     "lint:fix": "eslint . --fix",
+    "test": "mocha 'test/*.js'",
     "prisma:generate": "prisma generate --schema=./src/models/schema.prisma",
     "prisma:migrate:dev": "prisma migrate dev --name initial_01 --schema=./src/models/schema.prisma",
     "prisma:migrate:deploy": "prisma migrate dev --schema=./src/models/schema.prisma",
     "prisma:format": "prisma format --schema=./src/models/schema.prisma"
   },
   "devDependencies": {
+    "chai": "^5.1.1",
     "eslint": "^8.0.1",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
     "eslint-plugin-promise": "^6.0.0",
+    "mocha": "^10.4.0",
     "nodemon": "^3.0.2"
   },
   "dependencies": {
