@@ -9,9 +9,11 @@ import {
 import { validateResult } from '../utils/validationResult.util.js';
 import {
   getMe,
+  getPublicKeyOfServer,
   loginUser,
   refreshToken,
   registerUser,
+  symmetricKey,
   verifyEmailVerificationToken_
 } from '../controllers/auth.controller.js';
 import {
@@ -40,3 +42,7 @@ authRouter.post(
 authRouter.get('/verify/:token', verifyEmailVerificationToken_);
 
 authRouter.get('/get-me', hasAuthToken, getMe);
+
+authRouter.get('/public-key', getPublicKeyOfServer);
+
+authRouter.post('/exchange-key', symmetricKey);
